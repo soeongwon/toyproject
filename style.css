@@ -15,15 +15,23 @@ a {
   margin: 0 auto;
   background: #EEECE5;
   overflow: hidden;
-  /* position: relative; */
+  position: relative;
 }
+
+/* on */
+.home.on {
+  background-image: url(./images/mdi_home.png);
+}
+
 /* native */
 .native {
   height: 44px;
+  margin-bottom: 12px;
 }
 /* account */
 .account {
-  height: 692px;
+  height: 690px;
+
 }
 .account__title {
   height: 43px;
@@ -51,8 +59,8 @@ a {
 .option li{
   display: inline-block;
 }
-.option li:first-child {
-  margin-right: 14px;
+.option li + li {
+  margin-left: 14px;
 }
 .option li a {
   display: block;
@@ -73,24 +81,24 @@ a {
   padding: 32px 48px 0;
 }
 .status__total {
-  width: 100%;
   background: #fff;
   text-align: center;
   align-items: center;
   position: relative;
   border-radius: 12px;
-  padding: 14px 6px 6px ;
+  padding: 14px 0;
 }
 
 .account__number {
-  
+
   font-size: 14px;
   color: #858585;
 }
 .asset {
   display: block;
-  font-size: 43px;
-  margin: 16px 0 16px 0;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin: 16px 0;
 }
 .button__transfer {
   background-color: inherit;
@@ -105,16 +113,22 @@ a {
 .mygoal .goal_total {
   display: inline-block;
   width: 202px;
+  height: 6px;
   border-radius: 3px;
   background-color: #c4c4c4;
-  padding: 3px 0;
+  /* padding: 3px 0; */
   margin-bottom: 6px;
   position: relative;
 }
-.mygoal .archieved {
+.mygoal .goal_rate {
+  width: 50%;
+  height: 100%;
+  background-color: yellow;
+}
+.mygoal .archieved_var {
   position: absolute;
   top: -5px;
-  left: 0;
+  left: 50%;
   width: 4px;
   height: 17px;
   border-radius: 2px;
@@ -129,22 +143,25 @@ a {
 .ad {
   font-size: 14px;
   text-align: center;
-  margin: 24px 0 18px;
+  margin-top: 24px;
 }
 .ad a {
   text-decoration: underline;
 }
 /* nav */
 nav {
-  width: 100%;
+  width: 1000px;
   height: 76px;
-  position: absolute;
-  top: 736px;
+  position: fixed;
+  bottom: 0;
   background: linear-gradient(163.63deg, #00bdb2 11.35%, #c4e7b8 136.96%);
+  z-index: 1;
 
 }
 nav ul {
-  margin: 22px 46px 32px 22px;
+  margin-left: 48px;
+  margin-top: 22px;
+  margin-right: 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -154,9 +171,10 @@ nav ul li a {
   display: block;
   width: 28px;
   height: 28px;
+  /* cursor: pointer; */
 }
 nav ul li .home {
-  background: url(./images/mdi_home.png) no-repeat center;
+  background: url(./images/home.png) no-repeat center;
 }
 nav ul li .arrow {
   background: url(./images/Group\ 28.png)  no-repeat center;
@@ -169,12 +187,120 @@ nav ul li .more {
 }
 /* history */
 .account__history {
-  background: #e5e5e5;
-  height: 383px;
+  background: #f5f5f5;
   border-radius: 30px 30px 0 0;
+  padding: 25px 36px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 21px;
+}
+.history__more {
+  display: block;
+  width: 48px;
+  height: 2.15px;
+  border-radius: 4px;
+  background-color: #c4c4c4;
+  position: absolute;
+  top: 4.3px;
+  left: calc(50% - 24px);
+}
+
+.saving__box {
+  display: inline-block;
+  height: 47px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: #dadada;
+  overflow: hidden;
+  position: relative;
+}
+
+.saving__box .rate {
+  width: 60%;
+  height: 100%;
+  background-color: orange;
+}
+.saving__box .saving__info {
+  margin: 7px 13px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+}
+.saving__box .price {
+  display: block;
+}
+.history__recent {
+  width: 100%;
+  margin-top: 18px;
+  overflow: scroll;
+}
+.history__recent::-webkit-scrollbar {
+  width: 0;
+}
+.day {
+  font-size: 14PX;
+  
+}
+.day + .day {
+  margin-top: 38px;
+}
+.day .recent-sum {
+  display: flex;
+  justify-content: space-between;
+}
+.day .recent-sum strong {
+  font-weight: bold;
+}
+.day .recent-sum .total__spend {
+  color: #b4b4b4;
+}
+.day ul {
+  margin-top: 8px;
+}
+.day ul li {
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+}
+.day ul li + li {
+  margin-top: 8px;
+}
+.day ul li::after {
+  content: '';
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+.day ul li span {
+  position: absolute;
+  right: 0;
+}
+
+/* swiper */
+.swiper {
+  overflow: hidden;
+}
+.swiper-wrapper {
+  height: 49px;
+  width: 3000px;
+  
+}
+.swiper2 {
+  overflow: hidden;
+}
+.swiper2 .swiper-wrapper {
+  width: 3000px;
+  height: 175px;
+}
+.swiper2 .swiper-slide {
+  display: inline-block;
+  
 }
 /* mediaquery */
 @media (max-width: 1040px){
-  .wrap {width: 100%;}
+  .wrap {width: 100%; }
   nav {width: 100%;}
+
 }

@@ -9,6 +9,13 @@
   <!-- swiper -->
   <script src="assets/js/swiper.min.js"></script>
 
+  <!-- main.js -->
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- chartjs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="assets/js/chart.js"></script>
+
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +24,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="wrap">
+  <div class="wrap" id="wrap">
     <div class="native"></div>
     <section class="account">
       <nav class="tab-var">
@@ -45,12 +52,14 @@
               <strong class="asset">440,000원</strong>
               <button class="button__transfer">이체</button>
               <div class="mygoal">
-                <div class="goal_total">
-                  <div class="goal_rate"></div>
+                <div class="goal__var">
+                  <div class="goal_total">
+                    <div class="goal_rate"></div>
+                  </div>
                   <span class="archieved_var"></span>
                 </div>
                 
-                <a href="javascript:void(0)"><img src="./images/mdi_bar_chart.png" alt="chart"></a>
+                <a href="javascript:layerPopup();"><img src="./images/mdi_bar_chart.png" alt="chart"></a>
                 <strong>5일 동안 210,000원 남음</strong>
               </div>
             </div>
@@ -59,12 +68,14 @@
               <strong class="asset">440,000원</strong>
               <button class="button__transfer">이체</button>
               <div class="mygoal">
-                <div class="goal_total">
-                  <div class="goal_rate"></div>
+                <div class="goal__var">
+                  <div class="goal_total">
+                    <div class="goal_rate"></div>
+                  </div>
                   <span class="archieved_var"></span>
                 </div>
                 
-                <a href="javascript:void(0)"><img src="./images/mdi_bar_chart.png" alt="chart"></a>
+                <a href="javascript:layerPopup();"><img src="./images/mdi_bar_chart.png" alt="chart"></a>
                 <strong>5일 동안 210,000원 남음</strong>
               </div>
             </div>
@@ -134,17 +145,46 @@
         </div>
       </section>
     </section>
-    
-  </div>
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1.8,
-      spaceBetween: 18
-    });
-    var swiper = new Swiper(".mySwiper2", {
-      slidesPerView: 1,
 
-    });
-  </script>
+    
+    <!-- layer popup -->
+  <div class="layer__wrap" id="layer__wrap" style="opacity: 0; z-index: -1; ">
+    <section class="manage" id="manage" >
+      
+      <header>
+        <h3>지출 관리</h3>
+      </header>
+      
+      <section class="base">
+        <header class="base__header">
+          <h5>기준금액설정</h5>
+          <strong>2,100,000원</strong>
+        </header>
+        <div class="manage__total">
+          <div class="manage__amount">
+            <div class="total__amount"></div>
+          </div>
+          <span class="amount__bar"></span>
+        </div>
+      </section>
+      <section class="daily">
+        <h5>일간 리포트</h5>
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+      </section>
+      <section class="monthly">
+        <h5>6월 지출 패턴</h5>
+        <div>
+          <canvas id="dChart"></canvas>
+        </div>
+      </section>
+      <a class="close" id="close" href="javascript: close()">닫기</a>
+    </section>
+  </div>
+  </div>
+  
+  
+  
 </body>
 </html>

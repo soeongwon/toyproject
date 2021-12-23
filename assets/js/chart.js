@@ -43,11 +43,11 @@ const donutChar = new Chart(myChartTwo,{
   type: 'doughnut',
   data: {
     datasets: [{
-      data: [40, 30, 10],
+      data: [30, 40, 40],
       backgroundColor: [
         '#BD5B00',
         '#0057BD',
-        '#c4c4c4'
+        '#c4c4c4',
       ],
       borderWidth: 0,
       borderRadius: '4',

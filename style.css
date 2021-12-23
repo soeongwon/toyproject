@@ -29,10 +29,7 @@ a {
   background-color: #fff;
 }
 /* account */
-.account {
- 
 
-}
 .account__title {
   height: 43px;
   position: relative;
@@ -78,7 +75,9 @@ a {
 
 /* stats */
 .account__status {
-  padding: 32px 48px 0;
+  padding: 0 48px 0;
+  margin-bottom: 21px;
+  margin-top: 32px;
 }
 .status__total {
   background: #fff;
@@ -87,6 +86,7 @@ a {
   position: relative;
   border-radius: 12px;
   padding: 14px 0;
+
 }
 
 .account__number {
@@ -249,7 +249,8 @@ nav {
   position: fixed;
   bottom: 0;
   background: linear-gradient(163.63deg, #00bdb2 11.35%, #c4e7b8 136.96%);
-  z-index: 1;
+  z-index: 3;
+
 
 }
 nav ul {
@@ -283,20 +284,24 @@ nav ul li .more {
 .account__history {
   background: #f5f5f5;
   border-radius: 30px 30px 0 0;
-  padding: 25px 36px;
+  padding: 25px 36px 96px;
   position: relative;
-  margin-top: 21px;
-  height: 100%;
+  z-index: 1;
 }
-.history__more {
+.dragup {
+  width: 48px;
+  height: 20px;
+  position: absolute;
+  top: 4.3px;
+  left: calc(50% - 24px);
+}
+.dragupBtn {
   display: block;
   width: 48px;
   height: 2.15px;
   border-radius: 4px;
   background-color: #c4c4c4;
-  position: absolute;
-  top: 4.3px;
-  left: calc(50% - 24px);
+  
 }
 
 .saving__box {
@@ -324,9 +329,8 @@ nav ul li .more {
   display: block;
 }
 .history__recent {
-  width: 100%;
   margin-top: 18px;
-  overflow: scroll;
+  
 }
 .history__recent::-webkit-scrollbar {
   width: 0;
@@ -350,6 +354,7 @@ nav ul li .more {
 }
 .day ul {
   margin-top: 8px;
+  
 }
 .day ul li {
   font-size: 18px;
@@ -400,5 +405,6 @@ nav ul li .more {
   .wrap {width: 100%; }
   nav {width: 100%;}
   .layer__wrap {width: 100%;}
+  
 }
 

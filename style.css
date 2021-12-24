@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +19,25 @@ a {
   position: relative;
 }
 
+/* color style */
+.orange {
+  background-color: #FF5F00;
+}
+.yelloorange {
+  background-color: #FEB700;
+}
+.yello {
+  background-color: #FFDB4C;
+}
+.skyblue {
+  background-color: #55ACEE;
+}
+.purple {
+  background-color: #C64CFF;
+}
+.blue {
+  background-color: #4C89FF;
+}
 /* on */
 .home.on {
   background-image: url(./images/mdi_home.png);
@@ -38,7 +59,6 @@ a {
   width: 43px;
   height: 43px;
   border-radius: 50%;
-  background: blue;
   position: absolute;
   left: 27px;
 
@@ -75,31 +95,34 @@ a {
 
 /* stats */
 .account__status {
-  padding: 0 48px 0;
+  padding: 0 48px 0 48px;
   margin-bottom: 21px;
-  margin-top: 32px;
+  margin-top: 33px;
+  align-items: center;
 }
 .status__total {
   background: #fff;
   text-align: center;
-  align-items: center;
   position: relative;
   border-radius: 12px;
-  padding: 14px 0;
+  padding: 14px 0 6px;
 
 }
-
+.status__total span {
+  font-size: 14px;
+}
 .account__number {
 
   font-size: 14px;
   color: #858585;
 }
 .asset {
-  display: block;
-  font-size: 25px;
+  display: inline-block;
+  font-size: 24px;
   letter-spacing: 2px;
   margin: 16px 0;
-}
+ }
+
 .button__transfer {
   background-color: inherit;
   border: none;
@@ -108,13 +131,12 @@ a {
   right: 14px;
   cursor: pointer;
 }
-.mygoal {
-  
-}
+
 
 .goal__var {
   position: relative;
   display: inline-block;
+  margin-left: 26px;
 }
 .mygoal .goal_total {
   width: 202px;
@@ -127,24 +149,27 @@ a {
 .mygoal .goal_rate {
   width: 50%;
   height: 100%;
-  background-color: #FFDB4C;
 }
 
 
 .mygoal .archieved_var {
   position: absolute;
   top: -5px;
-  left: 50%;
+  left: 55%;
   width: 4px;
   height: 17px;
   border-radius: 2px;
   background-color: #FF5F00;
+  margin-bottom: 8px;
+  box-shadow: 0 0 0 2px #fff;
+
 }
 .mygoal strong {
   display: block;
   color: #858585;
-  margin-top: 6px;
+  line-height: 21px;
 }
+
 /* ad */
 .ad {
   font-size: 14px;
@@ -226,6 +251,7 @@ a {
   top: 0;
   right: 0;
   font-size: 14px;
+  font-weight: 300;
 }
 
 /* daily */
@@ -284,7 +310,7 @@ nav ul li .more {
 .account__history {
   background: #f5f5f5;
   border-radius: 30px 30px 0 0;
-  padding: 25px 36px 96px;
+  padding: 23px 36px 150px;
   position: relative;
   z-index: 1;
 }
@@ -317,7 +343,7 @@ nav ul li .more {
 .saving__box .rate {
   width: 60%;
   height: 100%;
-  background-color: #FF5F00;
+  
 }
 .saving__box .saving__info {
   margin: 7px 13px;
@@ -330,7 +356,13 @@ nav ul li .more {
 }
 .history__recent {
   margin-top: 18px;
-  
+}
+.income {
+  color: #FF5F00;
+}
+.income::before {
+  content: '+ ';
+  display: inline;
 }
 .history__recent::-webkit-scrollbar {
   width: 0;
@@ -345,12 +377,15 @@ nav ul li .more {
 .day .recent-sum {
   display: flex;
   justify-content: space-between;
+
 }
 .day .recent-sum strong {
-  font-weight: bold;
+  font-weight: 700;
+ 
 }
 .day .recent-sum .total__spend {
   color: #b4b4b4;
+  line-height: 20.72px;
 }
 .day ul {
   margin-top: 8px;
@@ -359,22 +394,24 @@ nav ul li .more {
 .day ul li {
   font-size: 18px;
   font-weight: 300;
+  height: 34px;
   position: relative;
-}
-.day ul li + li {
   margin-top: 8px;
+  font-weight: 400;
 }
+
 .day ul li::after {
   content: '';
   width: 100%;
   border-bottom: 1px solid #dcdcdc;
   position: absolute;
-  bottom: -6px;
+  bottom: 0px;
   left: 0;
 }
 .day ul li span {
   position: absolute;
   right: 0;
+  font-weight: 300;
 }
 
 
@@ -392,12 +429,11 @@ nav ul li .more {
   overflow: hidden;
 }
 .swiper2 .swiper-wrapper {
-  width: 3000px;
-  height: 175px;
+  width: 6000px;
+  height: 155px;
 }
 .swiper2 .swiper-slide {
   display: inline-block;
-  
 }
 
 /* mediaquery */

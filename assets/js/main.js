@@ -1,28 +1,31 @@
-// import data from 'generated.json';
-
 // swiper
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1.8,
   spaceBetween: 18
-});
+})
 var swiper = new Swiper(".mySwiper2", {
   slidesPerView: 1,
-});
+  spaceBetween: 6
+})
 
 // 레이어팝업
+const layerWrap = document.getElementById("layer__wrap")
+const homeBtn = document.getElementById("home")
+
+
 function layerPopup() {
-  // document.getElementById("layer__wrap").style.display="block";
-  document.getElementById("layer__wrap").style.position="absolute";
-  document.getElementById("layer__wrap").style.top="44px";
-  document.getElementById("layer__wrap").style.opacity="1";
-  document.getElementById("layer__wrap").style.zIndex="2"
-  document.getElementById("layer__wrap").style.transition="all 2s ease .3s";
+  layerWrap.style.position="absolute"
+  layerWrap.style.top="44px"
+  layerWrap.style.opacity="1"
+  layerWrap.style.zIndex="2"
+  layerWrap.style.transition="all 2s ease .3s"
+  homeBtn.classList.remove('on')
 }
 // 닫기버튼
 function close() {
-  // document.getElementById("layer__wrap").style.display="none";
-  document.getElementById("layer__wrap").style.opacity="0";
-  document.getElementById("layer__wrap").style.zIndex="-1";
+  layerWrap.style.opacity="0"
+  layerWrap.style.zIndex="-1"
+  homeBtn.className += ' on'
 }
 
 
@@ -66,33 +69,33 @@ function initTouchInfo() {
 // drag up
 
 function dragupStart(e){
-  initTouchInfo(); 
-  touchInfo.startY = e.changedTouches[0].clientY; 
-  touchInfo.startTime = e.timeStamp;
-  isUp = true;
+  initTouchInfo()
+  touchInfo.startY = e.changedTouches[0].clientY 
+  touchInfo.startTime = e.timeStamp
+  isUp = true
   touchInfo.scrollY = windowY - tabBarY - accountTitleY
   historyRecent.style.height = `${touchInfo.scrollY}px`
 }
 
 function dragupMove(e){
-  if(!isUp) return;
-  let nowY = e.changedTouches[0].clientY;
-  touchInfo.moveY = touchInfo.startY - nowY; 
+  if(!isUp) return
+  let nowY = e.changedTouches[0].clientY
+  touchInfo.moveY = touchInfo.startY - nowY
   accountHistory.style.transform = `translateY(${ touchInfo.translateY + (-1 * touchInfo.moveY)}px)`
 }
 
 function dragupEnd(e){
   isUp = false
   if (touchInfo.moveY > 25 || -25 < touchInfo.moveY < 0){
-    accountHistory.style.transform = `translateY(-240px)`
+    accountHistory.style.transform = `translateY(-251px)`
     historyRecent.style.height = `${touchInfo.scrollY - historyRecentTop}px`
     console.log(historyRecentTop)
   }else if (touchInfo.moveY < -25 || 0 < touchInfo.moveY < 25){
     accountHistory.style.transform = `translateY(0)`
-    initTouchInfo();
+    initTouchInfo()
     historyRecent.style.height = `${historyRecentY + (tabBarY * 2 )}px`
   }
-  accountHistory.style.transition = '.4s;'
+  accountHistory.style.transition = '.4s'
 }
 
 dragup.addEventListener('touchstart', dragupStart)
@@ -103,7 +106,32 @@ dragup.addEventListener('touchend', dragupEnd)
 var body = document.getElementsByTagName("body")[0]
 
 window.onresize = function(event){
-  var innerWidth = window.innerWidth;
-  innerWidth < "430" ? body.style.maxHeight = "100vh" : body.style.maxHeight = `100%`;
+  var innerWidth = window.innerWidth
+  innerWidth < "430" ? body.style.maxHeight = "100vh" : body.style.maxHeight = `100%`
   innerWidth < "430" ? body.style.overflow = "hidden" : body.style.overflow = "visible"
 }
+
+// 계좌명 및 프로필 바꾸기
+const accountName = document.getElementById('subtit')
+const profilePic = document.querySelector('.profile img')
+const accountNum = document.querySelectorAll('.account__number')
+const myAsset = document.querySelectorAll('.asset')
+
+swiper.on('transitionEnd', function(){
+  if (swiper.realIndex == 0) {
+    accountName.innerHTML = '생활비'
+    profilePic.src = "./images/생활비.png"
+    accountNum[0].innerHTML = '355-673877-78773'
+    myAsset[0].innerHTML = '1,240,000' 
+  } else if (swiper.realIndex == 1) {
+    accountName.innerHTML = '의민이 용돈'
+    profilePic.src = "./images/의민이.png"
+    accountNum[1].innerHTML = '23-232117-34773'
+    myAsset[1].innerHTML = '440,000' 
+  } else {
+    accountName.innerHTML = '할머니 계좌'
+    profilePic.src = "./images/할머니.png"
+    accountNum[2].innerHTML = '155-23422-78773'
+    myAsset[2].innerHTML = '3,140,000'
+  }
+})

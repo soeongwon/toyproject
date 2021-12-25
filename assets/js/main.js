@@ -1,3 +1,4 @@
+
 // swiper
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1.8,
@@ -5,6 +6,7 @@ var swiper = new Swiper(".mySwiper", {
 })
 var swiper = new Swiper(".mySwiper2", {
   slidesPerView: 1,
+  spaceBetween: 48
 })
 
 // 레이어팝업
@@ -115,22 +117,49 @@ const accountName = document.getElementById('subtit')
 const profilePic = document.querySelector('.profile img')
 const accountNum = document.querySelectorAll('.account__number')
 const myAsset = document.querySelectorAll('.asset')
+const savingRate = document.querySelectorAll('.saving__box .rate')
+const savingBoxName = document.querySelectorAll('.saving__info strong')
+const savingBoxMoney = document.querySelectorAll('.saving__info span')
+
+function AccountInfo(name, pic, accountNum) {
+  this.accountName = name
+  this.profilePic = pic
+  this.accountNum = accountNum  
+}
+
+AccountInfo.prototype.getAccountIfo = function(){
+  accountName.innerHTML = this.accountName
+  profilePic.src = this.profilePic
+}
+const expenses = new AccountInfo ('생활비', "./images/expenses.png")
+const son = new AccountInfo('의민이 용돈', "./images/son.png")
+const grandma = new AccountInfo('할머니 계좌', "./images/grandma.png")
 
 swiper.on('transitionEnd', function(){
+  
   if (swiper.realIndex == 0) {
-    accountName.innerHTML = '생활비'
-    profilePic.src = "./images/생활비.png"
-    accountNum[0].innerHTML = '355-673877-78773'
-    myAsset[0].innerHTML = '1,240,000' 
+    expenses.getAccountIfo()
+    savingRate[0].style.backgroundColor = '#FF5F00'
+    savingRate[1].style.backgroundColor = '#FEB700'
+    savingBoxName[0].innerHTML = '여행가자!'
+    savingBoxName[1].innerHTML = '냉장고사기'
+    savingBoxMoney[0].innerHTML = '842,000원'
+    savingBoxMoney[1].innerHTML = '122,200원'
   } else if (swiper.realIndex == 1) {
-    accountName.innerHTML = '의민이 용돈'
-    profilePic.src = "./images/의민이.png"
-    accountNum[1].innerHTML = '23-232117-34773'
-    myAsset[1].innerHTML = '440,000' 
+    son.getAccountIfo()
+    savingRate[0].style.backgroundColor = '#55ACEE'
+    savingRate[1].style.backgroundColor = '#005F59'
+    savingBoxName[0].innerHTML = '게임기^^'
+    savingBoxName[1].innerHTML = '기부실천!'
+    savingBoxMoney[0].innerHTML = '142,200원'
+    savingBoxMoney[1].innerHTML = '82,200원'
   } else {
-    accountName.innerHTML = '할머니 계좌'
-    profilePic.src = "./images/할머니.png"
-    accountNum[2].innerHTML = '155-23422-78773'
-    myAsset[2].innerHTML = '3,140,000'
+    grandma.getAccountIfo()
+    savingRate[0].style.backgroundColor = '#0A73C3'
+    savingRate[1].style.backgroundColor = '#EEBA00'
+    savingBoxName[0].innerHTML = '딸 냉장고'
+    savingBoxName[1].innerHTML = '아들 컴퓨터'
+    savingBoxMoney[0].innerHTML = '545,200원'
+    savingBoxMoney[1].innerHTML = '432,000원'
   }
 })

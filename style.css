@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
 
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +20,7 @@ a {
   margin: 0 auto;
   background: #EEECE5;
   position: relative;
+  overflow: hidden;
 }
 
 /* color style */
@@ -95,24 +99,27 @@ a {
 
 /* stats */
 .account__status {
-  padding: 0 48px 0 48px;
+  padding: 0 48px 0 46px;
+  padding-right: 45px;
   margin-bottom: 21px;
   margin-top: 33px;
-  align-items: center;
 }
 .status__total {
-  background: #fff;
   text-align: center;
   position: relative;
-  border-radius: 12px;
   padding: 14px 0 6px;
-
+  max-width: 100%;
+  box-shadow: 0 0 1px 2px rgba(254, 183, 0, .1) inset;
+  border-radius: 12px;
+  background-color: #fff;
+}
+.status__total + .status__total {
+  margin-left: -4px;
 }
 .status__total span {
   font-size: 14px;
 }
 .account__number {
-
   font-size: 14px;
   color: #858585;
 }
@@ -210,7 +217,7 @@ a {
 /* base */
 .base {
   margin-top: 29px;
- 
+  
 }
 .base .base__header {
   display: flex;
@@ -314,6 +321,7 @@ nav ul li .more {
   padding: 23px 36px 150px;
   position: relative;
   z-index: 1;
+  box-shadow: 0 -1px 1px 1px rgba(254, 183, 0, .2) inset;
 }
 .dragup {
   width: 48px;
@@ -421,20 +429,23 @@ nav ul li .more {
 .swiper {
   overflow: hidden;
 }
-.swiper-wrapper {
+.swiper .swiper-wrapper {
   height: 49px;
   width: 3000px;
   
 }
 .swiper2 {
   overflow: hidden;
+
 }
 .swiper2 .swiper-wrapper {
   width: 6000px;
-  height: 155px;
+  height: 156px;
+  
 }
 .swiper2 .swiper-slide {
   display: inline-block;
+  
 }
 
 /* mediaquery */

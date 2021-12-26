@@ -38,16 +38,17 @@
     "rateColor": "#0A73C3"
   }],
   "savingBox2": [
+    {
+      "name": "냉장고사기",
+      "money": "122,200원",
+      "rateColor": "#FEB700"
+    },
    {
     "name": "기부실천!",
     "money": "82,200원",
     "rateColor": "#005F59"
   },
   {
-    "name": "냉장고사기",
-    "money": "122,200원",
-    "rateColor": "#FEB700"
-  },{
     "name": "아들 컴퓨터",
     "money": "432,000원",
     "rateColor": "#EEBA00"

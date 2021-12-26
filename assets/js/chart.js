@@ -1,8 +1,17 @@
 
-const myChartOne = document.getElementById("myChart").getContext("2d");
-const myChartTwo = document.getElementById("dChart").getContext("2d");
+const ctx = document.getElementById("myChart").getContext("2d");
+const ctx2 = document.getElementById("dChart").getContext("2d");
 
-const barChar = new Chart(myChartOne, {
+
+const options = {
+  plugins: {
+    legend: {
+      display: false
+    }
+  },
+
+}
+const barChar = new Chart(ctx, {
   type: "bar",
   data: {
     labels: [
@@ -20,11 +29,17 @@ const barChar = new Chart(myChartOne, {
     ],
     datasets: [
       {
-        label: '',
+        label:'',
         data: [
           20000,
           40000,
+          20000,
+          40000,
           60000,
+          80000,
+          60000,
+          80000,
+          100000,
           80000,
           100000,
 
@@ -36,14 +51,21 @@ const barChar = new Chart(myChartOne, {
       
     ],
 
-  }
+  },
+  options: options
+
 });
 
-const donutChar = new Chart(myChartTwo,{
+const options2 = {
+  cutout: "80%"
+}
+
+const donutChar = new Chart(ctx2,{
   type: 'doughnut',
+  options: options2,
   data: {
     datasets: [{
-      data: [30, 40, 40],
+      data: [20, 50, 30],
       backgroundColor: [
         '#BD5B00',
         '#0057BD',
@@ -55,5 +77,6 @@ const donutChar = new Chart(myChartTwo,{
     ],
     
   },
+  
 
 });

@@ -50,7 +50,7 @@ recentRequest.onload = function (){
        }
      })
 
-     console.log(priceArr)
+
      const priceSum = priceArr.reduce(function add(sum, currValue){
       return sum + currValue
      }, 0)
@@ -68,15 +68,10 @@ recentRequest.onload = function (){
         
         
         if (today[j].income === "in") {
-          
           const incomPrice = history.querySelector('span').className = "income"
-          console.log(incomPrice)
           
         }
-        
-        
-
-        
+       
       }
 
       historyRecent.appendChild(day).className = "day"

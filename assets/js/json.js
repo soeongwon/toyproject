@@ -27,7 +27,7 @@ recentRequest.onload = function (){
       }, {})
     }
     const groupedDate = groupDates(List, 'date')
-
+    
 
     const count = Object.keys(groupedDate)
     
@@ -37,23 +37,58 @@ recentRequest.onload = function (){
       const day = document.createElement('div')
       const recent = document.createElement('div')
       const dates = document.createElement('strong')
+      const recentSum = document.createElement('span')
       const historyTotal = document.createElement('ul')
       
      const today = groupedDate[count[i]]
+    
+     const priceArr = today.map((x)=>{
+       if(x.income === "out") {
+        return x.price 
+       } else {
+         return null
+       }
+     })
+
+     console.log(priceArr)
+     const priceSum = priceArr.reduce(function add(sum, currValue){
+      return sum + currValue
+     }, 0)
+      
+      
       for (let j = 0; j < today.length; j++) {
         const todayHistory = today[j].history
         const todayPrice = today[j].price.toLocaleString()
         const history = document.createElement('li')
-        history.innerHTML = todayHistory + "<span>" + todayPrice + "</span>"
+        const priceLine = document.createElement('span')
+        history.textContent = todayHistory
         historyTotal.appendChild(history)
+        history.appendChild(priceLine)
+        priceLine.textContent = todayPrice
+        
+        
+        if (today[j].income === "in") {
+          
+          const incomPrice = history.querySelector('span').className = "income"
+          console.log(incomPrice)
+          
+        }
+        
+        
+
+        
       }
 
       historyRecent.appendChild(day).className = "day"
       day.appendChild(recent).className = "recent-sum"
       recent.appendChild(dates)
+      recent.appendChild(recentSum)
       day.appendChild(historyTotal)
    
       dates.textContent =  count[i]
+      recentSum.textContent = priceSum.toLocaleString() + "원 지출"
+
+     
     }
     
 
